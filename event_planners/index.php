@@ -1,4 +1,12 @@
-<?php include("includes/public_header.php") ?>    
+<?php
+
+/*session_start();
+include("includes/connect.php");
+echo "<pre>";
+print_r($_SESSION);
+die();*/
+
+include("includes/public_header.php") ?>    
 
 <!-- Welcome Area Start -->
     <section class="welcome-area">
@@ -160,7 +168,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-service-area mb-80 wow fadeInUp" data-wow-delay="800ms">
                         <img src="img/icon/vendor.svg" width="30%" alt="">
-                        <h5>Vendor</h5>
+                        <a href="category.php"><h5>Vendor</h5></a>
                         <p>Manage your vendors.</p>
                     </div>
                 </div>
@@ -453,76 +461,6 @@
         <div class="border-top mt-3"></div>
     </div>
 
-    <!-- Blog Area Start -->
-    <section class="akame-blog-area section-padding-80-0 clearfix">
-        <div class="container">
-            <div class="row">
-                <!-- Section Heading -->
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h2>Latest News</h2>
-                        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <!-- Single Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-area mb-80 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="post-thumbnail">
-                            <a href="single-blog.html"><img src="img/bg-img/1.jpg" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-title">Nina Dobrev Got a Major Haircut and Doesn't Look Like Nina Dobrev.</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date"><i class="icon_clock_alt"></i> September 27, 2018</a>
-                                <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
-                            </div>
-                            <p>Most people recognize the CFDA Awards for its slew of perfect gowns and skin-tight.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-area mb-80 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="post-thumbnail">
-                            <a href="single-blog.html"><img src="img/bg-img/2.jpg" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-title">Finally: How to Make Your Agressively Straight Hair Hold a Curl</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date"><i class="icon_clock_alt"></i> September 27, 2018</a>
-                                <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
-                            </div>
-                            <p>So I sought out an actual professional, i.e. celeb hairstylist Justine Marjan.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-post-area mb-80 wow fadeInUp" data-wow-delay="600ms">
-                        <div class="post-thumbnail">
-                            <a href="single-blog.html"><img src="img/bg-img/3.jpg" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="#" class="post-title">Yes, Emilia Clarke Just Cut Off All Her Hair Into a Tiny Bob</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date"><i class="icon_clock_alt"></i> September 27, 2018</a>
-                                <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
-                            </div>
-                            <p>Last night, Clarke appeared on Late Night with Seth Meyers, wearing a charcoal blazer.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- Blog Area End -->
 
     <!-- Call To Action Area Start -->
     <section class="akame-cta-area bg-gray section-padding-80">

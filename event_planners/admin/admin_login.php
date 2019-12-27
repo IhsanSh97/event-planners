@@ -15,8 +15,8 @@ include("../includes/connect.php");
 			$row    = mysqli_fetch_assoc($result);
 			
 			if($row['admin_id']){
-				$_SESSION['admin_id'] = $row['admin_id'];
-				$_SESSION['admin_name'] = $row['admin_name'];
+				$_SESSION['admin_id']    = $row['admin_id'];
+				$_SESSION['admin_name']  = $row['admin_name'];
 				$_SESSION['admin_email'] = $row['admin_email'];
 				header("location:index.php");
 			}
@@ -60,6 +60,13 @@ include("../includes/connect.php");
       <p class="login-box-msg">Sign in to start your session</p>
 
       <form action="#" method="post">
+		
+			<?php
+				if(isset($msg)){
+					echo "<div class='alert alert-danger'>$msg</div>";
+				}
+			?>  
+		
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
           <div class="input-group-append">

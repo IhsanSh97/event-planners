@@ -17,7 +17,7 @@ session_start();
     <title>Event Planners</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/icon/glass-cheers.svg">
+    <link rel="icon" href="../img/icon/glass-cheers.svg">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -100,7 +100,7 @@ session_start();
                                     <li><a href="#">About Us</a></li>
                                     <li><a href="#">Blog</a></li>
                                     <li><a href="#">Contact</a></li>
-									<li><a href="#">Vendor?</a></li>
+									<li><a href="vendor_signup.php">Vendor?</a></li>
 									<li>
 										<a href="#"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
 											<ul class="dropdown">
@@ -110,6 +110,7 @@ session_start();
 											<?php
 												if(isset($_SESSION['user_id']) || isset($_SESSION['v_id'])){
 													echo "<li><a href='logout.php'>Logout</a></li>";
+													echo "<li><a href='changePass.php'>Change Password</a></li>";
 												}
 											?>
                                             
@@ -126,11 +127,11 @@ session_start();
 										
 										echo "<a href='profile.php' class=''>";
 										
-										if(isset($_SESSION['user_name'])){
-											echo "Welcom {$_SESSION['user_name']}";
+										if(isset($_SESSION['user_id'])){
+											echo "Welcome {$_SESSION['user_name']}";
 										}
-										else if(isset($_SESSION['v_name'])){
-											echo "Welcom {$_SESSION['v_name']}";
+										else if(isset($_SESSION['v_id'])){
+											echo "<a href='vendor_form.php'>Welcome {$_SESSION['v_name']}</a>";
 										}
 									else{
 										echo "";
@@ -145,11 +146,19 @@ session_start();
                                 
                                     
 								<?php
-								if(!isset($_SESSION['user_id']) && !isset($_SESSION['v_id'])){
+								if(!isset($_SESSION['user_id'])){
 									echo "<div class='book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4'>
-											<a href='reg/user_signup' class='btn akame-btn'>Join Us</a>
+											<a href='user_signup' class='btn akame-btn'>Join Us</a>
                                 		  </div>";
 								}
+								else if(!isset($_SESSION['v_id'])){
+									echo "<div class='book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4'>
+											<a href='vendor_signup' class='btn akame-btn'>Join Us</a>
+                                		  </div>";
+								}
+								else{
+									 echo "";
+									}
 								
 								?>
 		

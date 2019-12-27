@@ -1,7 +1,0 @@
-input.submit{
-	background-color: #bca858;
-}
-
-input.submit:hover, input.submit:active, input.submit:focus{
-	background-color: #8F7E39;
-}
