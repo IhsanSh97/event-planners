@@ -226,110 +226,46 @@ include("includes/public_header.php") ?>
                 <div class="col-12">
                     <div class="portfolio-menu text-center mb-30">
                         <button class="btn active" data-filter="*">All</button>
-                        <button class="btn" data-filter=".haircuts">Haircuts</button>
-                        <button class="btn" data-filter=".dye">Dye</button>
-                        <button class="btn" data-filter=".shave">Shave</button>
-                        <button class="btn" data-filter=".hairstyle">Hairstyle</button>
-                    </div>
-                </div>
-            </div>
+                        <?php
+						
+							$query  = "SELECT * FROM service";
+							$result = mysqli_query($conn, $query);
+							while($row = mysqli_fetch_assoc($result)){
+								echo "<button class='btn' data-filter='.{$row['category']}'>{$row['category']}</button>";
+								
+							}
 
-            <div class="row akame-portfolio-area">
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-3 akame-portfolio-item haircuts mb-30 wow fadeInUp" data-wow-delay="200ms">
-                    <div class="akame-portfolio-single-item">
-                        <img src="img/bg-img/5.jpg" alt="">
+							echo "</div></div></div><div class='row akame-portfolio-area'>
+							<div class='col-12 col-sm-6 col-lg-4 akame-portfolio-item {$row['category']} mb-30 wow fadeInUp' data-wow-delay='200ms'>";
 
-                        <!-- Overlay Content -->
-                        <div class="overlay-content d-flex align-items-center justify-content-center">
-                            <div class="overlay-text text-center">
-                                <h4>Hairstyle</h4>
-                                <p>Consectetur adipisicing elit sed doe</p>
-                            </div>
-                        </div>
+							$query2 = "SELECT * FROM best_vendor LEFT JOIN vendor_service ON best_vendor.vs_serial = vendor_service.vs_serial";
+							$result2 = mysqli_query($conn, $query2);
 
-                        <!-- Thumbnail Zoom -->
-                        <a href="img/bg-img/5.jpg" class="thumbnail-zoom"><i class="icon_search"></i></a>
-                    </div>
-                </div>
+							while($row1 = mysqli_fetch_assoc($result2)){
+								echo "
+									<div class='akame-portfolio-single-item'>
+										<img src='upload/{$row1['img']}' alt=''>";
 
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 akame-portfolio-item dye mb-30 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="akame-portfolio-single-item">
-                        <img src="img/bg-img/6.jpg" alt="">
 
-                        <!-- Overlay Content -->
-                        <div class="overlay-content d-flex align-items-center justify-content-center">
-                            <div class="overlay-text text-center">
-                                <h4>Hairstyle</h4>
-                                <p>Consectetur adipisicing elit sed doe</p>
-                            </div>
-                        </div>
+							echo "<div class='overlay-content d-flex align-items-center justify-content-center'>
+								<div class='overlay-text text-center'>
+									<a href='service.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'><h4>{$row1['vs_name']}</h4></a>
 
-                        <!-- Thumbnail Zoom -->
-                        <a href="img/bg-img/6.jpg" class="thumbnail-zoom"><i class="icon_search"></i></a>
-                    </div>
-                </div>
+								</div>
+								</div>";
 
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-lg-3 akame-portfolio-item shave mb-30 wow fadeInUp" data-wow-delay="400ms">
-                    <div class="akame-portfolio-single-item">
-                        <img src="img/bg-img/7.jpg" alt="">
 
-                        <!-- Overlay Content -->
-                        <div class="overlay-content d-flex align-items-center justify-content-center">
-                            <div class="overlay-text text-center">
-                                <h4>Hairstyle</h4>
-                                <p>Consectetur adipisicing elit sed doe</p>
-                            </div>
-                        </div>
-
-                        <!-- Thumbnail Zoom -->
-                        <a href="img/bg-img/7.jpg" class="thumbnail-zoom"><i class="icon_search"></i></a>
-                    </div>
-                </div>
-
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-3 akame-portfolio-item hairstyle mb-30 wow fadeInUp" data-wow-delay="500ms">
-                    <div class="akame-portfolio-single-item">
-                        <img src="img/bg-img/8.jpg" alt="">
-
-                        <!-- Overlay Content -->
-                        <div class="overlay-content d-flex align-items-center justify-content-center">
-                            <div class="overlay-text text-center">
-                                <h4>Hairstyle</h4>
-                                <p>Consectetur adipisicing elit sed doe</p>
-                            </div>
-                        </div>
-
-                        <!-- Thumbnail Zoom -->
-                        <a href="img/bg-img/8.jpg" class="thumbnail-zoom"><i class="icon_search"></i></a>
-                    </div>
-                </div>
-
-                <!-- Single Portfolio Item -->
-                <div class="col-12 col-sm-6 col-lg-3 akame-portfolio-item dye mb-30 wow fadeInUp" data-wow-delay="600ms">
-                    <div class="akame-portfolio-single-item">
-                        <img src="img/bg-img/9.jpg" alt="">
-
-                        <!-- Overlay Content -->
-                        <div class="overlay-content d-flex align-items-center justify-content-center">
-                            <div class="overlay-text text-center">
-                                <h4>Hairstyle</h4>
-                                <p>Consectetur adipisicing elit sed doe</p>
-                            </div>
-                        </div>
-
-                        <!-- Thumbnail Zoom -->
-                        <a href="img/bg-img/9.jpg" class="thumbnail-zoom"><i class="icon_search"></i></a>
-                    </div>
-                </div>
-            </div>
-
+							echo "<a href='upload/{$row1['img']}' class='thumbnail-zoom'><i class='icon_search'></i></a>
+								</div>
+							</div></div>";
+							}
+						
+						?>
+						
             <div class="row">
                 <div class="col-12">
                     <div class="view-all-btn mt-30 text-center">
-                        <a href="portfolio.html" class="btn akame-btn">View All Work</a>
+                        <a href="category.php" class="btn akame-btn">View All Vendors</a>
                     </div>
                 </div>
             </div>
@@ -380,7 +316,7 @@ include("includes/public_header.php") ?>
                         </div>
                         <div class="team-member-info">
                             <h5>Mila Hartley</h5>
-                            <p>Hairdresser</p>
+                            <p>Event Cooredinator</p>
                         </div>
                     </div>
                 </div>
@@ -402,7 +338,7 @@ include("includes/public_header.php") ?>
                         </div>
                         <div class="team-member-info">
                             <h5>Teigan Duran</h5>
-                            <p>Stylist</p>
+                            <p>Event Cooredinator</p>
                         </div>
                     </div>
                 </div>
@@ -424,7 +360,7 @@ include("includes/public_header.php") ?>
                         </div>
                         <div class="team-member-info">
                             <h5>Tanya Ramsay</h5>
-                            <p>Hairstylist</p>
+                            <p>Event Cooredinator</p>
                         </div>
                     </div>
                 </div>
@@ -446,7 +382,7 @@ include("includes/public_header.php") ?>
                         </div>
                         <div class="team-member-info">
                             <h5>Donna Carr</h5>
-                            <p>Baber</p>
+                            <p>Event Cooredinator</p>
                         </div>
                     </div>
                 </div>

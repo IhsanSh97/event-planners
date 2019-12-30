@@ -14,6 +14,7 @@ include("includes/public_header.php");
 		$email    = $_POST['email'];
 		$phone    = $_POST['phone'];
 		$password = $_POST['password'];
+		$conf_password = $_POST['conf_password'];
 		
 		$img      = $_FILES['img']['name'];
 		$tmp_name = $_FILES['img']['tmp_name'];
@@ -27,24 +28,28 @@ include("includes/public_header.php");
 		
 		while($ftch = mysqli_fetch_assoc($rslt)){
 			
-			if($email != $ftch['user_email']){
+			if($email != $ftch['user_email'] && $password == $conf_password){
 				
 				$query = "INSERT INTO user(user_name, user_email, user_password, phone, img) VALUES('$name', '$email', '$password', '$phone', '$img')";
+				
+				mysqli_query($conn, $query);
 
 				$query2 = "SELECT * FROM user";
 
-				while($row = mysqli_fetch_assoc(mysqli_query($conn, $query2))){
+				/*while(*/$row = mysqli_fetch_assoc(mysqli_query($conn, $query2))/*){*/;
 
 					if($row['user_email'] == $email){
 						$_SESSION['user_id']   = $row['user_id'];
 						$_SESSION['user_name'] = $row['user_name'];
 						echo '<script>window.top.location="index.php"</script>';
+						exit();
 					}
-					else{
-						$msg = "This email is already registered";
-					}
-				}
+					
+				/*}*/
 			}
+			else{
+					$msg = "This email is already registered";
+				}
 		}		
 	}
 
@@ -66,6 +71,7 @@ include("includes/public_header.php");
                                 <input type="text" name="name" class="form-control mb-30" placeholder="Your Name" required>
                                 <input type="email" name="email" class="form-control mb-30" placeholder="Email" required>
 								<input type="password" name="password" class="form-control mb-30" placeholder="Password" required>
+								<input type="password" name="conf_password" class="form-control mb-30" placeholder="Confirm Password" required>
                                 <input type="text" name="phone" class="form-control mb-30" placeholder="Phone Number" required>
 								<input type="file" name="img" class="mb-30" required>
 								<p style="color: black;">Already have an account? <a href="user_login.php" style="color: #bca858; ">Login here</a></p>

@@ -142,7 +142,13 @@ session_start();
               <li class="nav-item">
                 <a href="./view_user.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View User</p>
+                  <p>View Users</p>
+                </a>
+              </li>
+			  <li class="nav-item">
+                <a href="./best_vendor.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Best Vendors</p>
                 </a>
               </li>
             </ul>

@@ -104,13 +104,19 @@ session_start();
 									<li>
 										<a href="#"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
 											<ul class="dropdown">
-                                            <li><a href="#">Profile</a></li>
+                                            <!--<li><a href="#">Profile</a></li>-->
                                             <li><a href="reserve.php">Reservations</a></li>
 												
 											<?php
-												if(isset($_SESSION['user_id']) || isset($_SESSION['v_id'])){
+												if(isset($_SESSION['user_id'])){
+													echo "<li><a href='user_reserve.php'>Change Password</a></li>";
+													echo "<li><a href='user_change_pass.php'>Change Password</a></li>";
 													echo "<li><a href='logout.php'>Logout</a></li>";
-													echo "<li><a href='changePass.php'>Change Password</a></li>";
+												}
+												else if(isset($_SESSION['v_id'])){
+													echo "<li><a href='vendor_reserve.php'>Change Password</a></li>";
+													echo "<li><a href='vendor_change_password.php'>Change Password</a></li>";
+													echo "<li><a href='logout.php'>Logout</a></li>";
 												}
 											?>
                                             
@@ -146,14 +152,9 @@ session_start();
                                 
                                     
 								<?php
-								if(!isset($_SESSION['user_id'])){
+								if(!isset($_SESSION['user_id']) && !isset($_SESSION['v_id'])){
 									echo "<div class='book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4'>
 											<a href='user_signup' class='btn akame-btn'>Join Us</a>
-                                		  </div>";
-								}
-								else if(!isset($_SESSION['v_id'])){
-									echo "<div class='book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4'>
-											<a href='vendor_signup' class='btn akame-btn'>Join Us</a>
                                 		  </div>";
 								}
 								else{
