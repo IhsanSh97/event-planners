@@ -1,6 +1,6 @@
 <?php
 
-include("includes/connect.php");
+require("includes/connect.php");
 session_start();
 
 ?>
@@ -12,16 +12,25 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="fontawesome/css/all.css" rel="stylesheet" media="all">
+	<link href="js/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+	<!-- Core Style CSS 
+    <link rel="stylesheet" href="css/core-style.css">-->
 
     <!-- Title -->
     <title>Event Planners</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="../img/icon/glass-cheers.svg">
+    <link rel="icon" href="img/icon/glass-cheers.png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+	
+	<!--<script>
+	  function cal() {
+		$("#datepicker").datepicker();
+	  } ;
+	 </script>-->
 </head>
 
 <body>
@@ -100,28 +109,44 @@ session_start();
                                     <li><a href="#">About Us</a></li>
                                     <li><a href="#">Blog</a></li>
                                     <li><a href="#">Contact</a></li>
-									<li><a href="vendor_signup.php">Vendor?</a></li>
+									<?php
+										if(!isset($_SESSION['user_id']) && !isset($_SESSION['v_id'])){
+											echo "<li><a href='vendor_signup.php'>Vendor?</a></li>";
+										}
+										/*else if(!isset($_SESSION['v_id'])){
+											echo "<li><a href='vendor_signup.php'>Vendor?</a></li>";
+										}*/
+										else{
+											echo "";
+										}
+									?>
 									<li>
-										<a href="#"><i class="fas fa-user-circle" style="font-size: 30px;"></i></a>
-											<ul class="dropdown">
+										
                                             <!--<li><a href="#">Profile</a></li>-->
-                                            <li><a href="reserve.php">Reservations</a></li>
 												
 											<?php
 												if(isset($_SESSION['user_id'])){
-													echo "<li><a href='user_reserve.php'>Change Password</a></li>";
+													echo "<a href='#'><i class='fas fa-user-circle' style='font-size: 30px;'></i></a>
+														 <ul class='dropdown'>";
+													echo "<li><a href='#'>Reservations</a></li>";
 													echo "<li><a href='user_change_pass.php'>Change Password</a></li>";
-													echo "<li><a href='logout.php'>Logout</a></li>";
+													echo "<li><a href='logout.php'>Logout</a></li>
+													</ul>";
 												}
 												else if(isset($_SESSION['v_id'])){
-													echo "<li><a href='vendor_reserve.php'>Change Password</a></li>";
+													echo "<a href='#'><i class='fas fa-user-circle' style='font-size: 30px;'></i></a>
+														 <ul class='dropdown'>";
+													echo "<li><a href='#'>Reservations</a></li>";
+													echo "<li><a href='edit_form.php'>Edit Market</a></li>";
 													echo "<li><a href='vendor_change_password.php'>Change Password</a></li>";
-													echo "<li><a href='logout.php'>Logout</a></li>";
+													echo "<li><a href='logout.php'>Logout</a></li>
+													</ul>";
+													
 												}
 											?>
                                             
                                             
-                                        </ul>
+                                        
 									</li>
                                 </ul>
 
@@ -130,21 +155,17 @@ session_start();
                                 <!-- Book Icon -->
                                 <div class="ml-5 mt-4 mt-lg-0 ml-md-4">
 									<?php
-										
-										echo "<a href='profile.php' class=''>";
-										
+																				
 										if(isset($_SESSION['user_id'])){
 											echo "Welcome {$_SESSION['user_name']}";
 										}
 										else if(isset($_SESSION['v_id'])){
-											echo "<a href='vendor_form.php'>Welcome {$_SESSION['v_name']}</a>";
+											echo "Welcome {$_SESSION['v_name']}";
 										}
 									else{
 										echo "";
 									}
-									
-										echo "</a>";
-									
+																		
 									?>
                                     
                                 </div>

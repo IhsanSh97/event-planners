@@ -74,6 +74,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/akame.bundle.js"></script>
     <!-- Active -->
     <script src="js/default-assets/active.js"></script>
+	<!-- jQuery-UI-->
+	<script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
 
 </body>
 
