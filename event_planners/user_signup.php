@@ -22,35 +22,40 @@ include("includes/public_header.php");
 		
 		move_uploaded_file($tmp_name, $path);
 		
-		$slct = "SELECT * FROM user";
-		
-		$rslt = mysqli_query($conn, $slct);
-		
-		while($ftch = mysqli_fetch_assoc($rslt)){
+
 			
-			if($email != $ftch['user_email'] && $password == $conf_password){
+			if($password == $conf_password){
 				
 				$query = "INSERT INTO user(user_name, user_email, user_password, phone, img) VALUES('$name', '$email', '$password', '$phone', '$img')";
 				
 				mysqli_query($conn, $query);
 
 				$query2 = "SELECT * FROM user";
+				$result2 = mysqli_query($conn, $query2);
 
-				/*while(*/$row = mysqli_fetch_assoc(mysqli_query($conn, $query2))/*){*/;
+				$row1    = mysqli_fetch_assoc($result2);
 
-					if($row['user_email'] == $email){
-						$_SESSION['user_id']   = $row['user_id'];
-						$_SESSION['user_name'] = $row['user_name'];
-						echo '<script>window.top.location="index.php"</script>';
-						exit();
+				if(mysqli_query($conn, $query)){
+					
+					$last_id = mysqli_insert_id($conn);
+					$_SESSION['user_id']   = $last_id;
+					
+					if(isset($_SESSION['user_id'])){
+						$_SESSION['user_name'] = $row1['user_name'];
 					}
 					
-				/*}*/
+					echo '<script>window.top.location="index.php"</script>';
+					exit();
+				}
+				else{
+					$msg = "This email is already registered.";
+				}
+
 			}
 			else{
-					$msg = "This email is already registered";
+					$msg = "Please check your password!";
 				}
-		}		
+				
 	}
 
 ?>   

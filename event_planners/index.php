@@ -225,24 +225,24 @@ include("includes/public_header.php") ?>
             <div class="row">
                 <div class="col-12">
                     <div class="portfolio-menu text-center mb-30">
-                        <button class="btn active" data-filter="*">All</button>
+                        <!--<button class="btn active" data-filter="*">All</button>-->
                         <?php
 						
-							$query  = "SELECT * FROM service";
-							$result = mysqli_query($conn, $query);
-							while($row = mysqli_fetch_assoc($result)){
-								echo "<button class='btn' data-filter='.{$row['category']}'>{$row['category']}</button>";
+							#$query  = "SELECT * FROM service";
+							#$result = mysqli_query($conn, $query);
+							#while($row = mysqli_fetch_assoc($result)){
+							#	echo "<button class='btn' data-filter='.{$row['category']}'>{$row['category']}</button>";
 								
-							}
+							#}
 
-							echo "</div></div></div><div class='row akame-portfolio-area'>
-							<div class='col-12 col-sm-6 col-lg-4 akame-portfolio-item {$row['category']} mb-30 wow fadeInUp' data-wow-delay='200ms'>";
+							echo "</div></div></div>";
 
 							$query2 = "SELECT * FROM best_vendor LEFT JOIN vendor_service ON best_vendor.vs_serial = vendor_service.vs_serial";
 							$result2 = mysqli_query($conn, $query2);
 
 							while($row1 = mysqli_fetch_assoc($result2)){
-								echo "
+								echo "<div class='row akame-portfolio-area'>
+							<div class='col-12 col-sm-6 col-lg-4 akame-portfolio-item mb-30 wow fadeInUp' data-wow-delay='200ms'>
 									<div class='akame-portfolio-single-item'>
 										<img src='upload/{$row1['img']}' alt=''>";
 

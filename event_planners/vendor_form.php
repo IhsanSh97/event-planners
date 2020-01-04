@@ -1,6 +1,10 @@
 <?php 
+include("includes/public_header.php");
+/*
+require("includes/connect.php");
+session_start(); 
+*/
 
-include("includes/public_header.php"); 
 
 	if(isset($_POST['submit']) && isset($_SESSION['v_id'])){
 		
@@ -14,49 +18,51 @@ include("includes/public_header.php");
 		
 		move_uploaded_file($tmp_name, $path.$img);
 		$q = "INSERT INTO vendor_service(vs_name, service_id, v_id, img) VALUES('$vs_name', '$cat', '$vid', '$img')";
-			
-		if(mysqli_query($conn, $q))
-		{
-			$last_id = mysqli_insert_id($conn);
-		}
-		
-		mysqli_query($conn, $q);
-		
-		$select = "SELECT * FROM vendor_service WHERE v_id = {$_SESSION['v_id']}";
-		
-		$desc1  = $_POST['desc1'];
-		$desc2  = $_POST['desc2'];
-		$desc3  = $_POST['desc3'];
-		
-		$img1      = $_FILES['vs_img1']['name'];
-		$tmp_name1 = $_FILES['vs_img1']['tmp_name'];
-		$path1     = "upload/";
-		
-		move_uploaded_file($tmp_name1, $path1.$img1);
-		
-		$img2      = $_FILES['vs_img2']['name'];
-		$tmp_name2 = $_FILES['vs_img2']['tmp_name'];
-		$path2     = "upload/";
-		
-		move_uploaded_file($tmp_name2, $path2.$img2);
-		
-		$img3      = $_FILES['vs_img3']['name'];
-		$tmp_name3 = $_FILES['vs_img3']['tmp_name'];
-		$path3     = "upload/";
-		
-		move_uploaded_file($tmp_name3, $path3.$img3);
-		
-		$qu = "INSERT INTO vs_img(img1, img2, img3, desc1, desc2, desc3, vs_serial) VALUES('$img1', '$img2', '$img3', '$desc1', '$desc2', '$desc3', '$last_id')";
 		
 		/*echo $q;
-		echo $qu;
 		die;*/
 		
-		mysqli_query($conn, $qu);
+		$result1 = mysqli_query($conn, $q);
 		
-		echo '<script>window.top.location="vendor_form.php"</script>';
-		exit();
+		if($result1)
+		{
+			$last_id = mysqli_insert_id($conn);
 		
+			$select = "SELECT * FROM vendor_service WHERE v_id = {$_SESSION['v_id']}";
+
+			$desc1  = $_POST['desc1'];
+			$desc2  = $_POST['desc2'];
+			$desc3  = $_POST['desc3'];
+
+			$img1      = $_FILES['vs_img1']['name'];
+			$tmp_name1 = $_FILES['vs_img1']['tmp_name'];
+			$path1     = "upload/";
+
+			move_uploaded_file($tmp_name1, $path1.$img1);
+
+			$img2      = $_FILES['vs_img2']['name'];
+			$tmp_name2 = $_FILES['vs_img2']['tmp_name'];
+			$path2     = "upload/";
+
+			move_uploaded_file($tmp_name2, $path2.$img2);
+
+			$img3      = $_FILES['vs_img3']['name'];
+			$tmp_name3 = $_FILES['vs_img3']['tmp_name'];
+			$path3     = "upload/";
+
+			move_uploaded_file($tmp_name3, $path3.$img3);
+
+			$qu = "INSERT INTO vs_img(img1, img2, img3, desc1, desc2, desc3, vs_serial) VALUES('$img1', '$img2', '$img3', '$desc1', '$desc2', '$desc3', '$last_id')";
+
+			/*echo $q;
+			echo $qu;
+			die;*/
+
+			mysqli_query($conn, $qu);
+
+			echo '<script>window.top.location="edit_form.php"</script>';
+			exit();
+		}
 	}
 
 
@@ -108,6 +114,7 @@ include("includes/public_header.php");
 							</div>
                             <div class="col-12 text-center">
                                 <button type="submit" name="submit" class="btn akame-btn btn-3 mt-15 active">Submit</button>
+                                <!--<a href='edit_form.php' class="btn akame-btn btn-3 mt-15 active">Edit</a>-->
                             </div>
                         </div>
                     </form>

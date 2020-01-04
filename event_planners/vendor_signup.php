@@ -8,38 +8,45 @@ include("includes/public_header.php");
 		$phone    = $_POST['phone'];
 		$password = $_POST['password'];
 		$conf_password = $_POST['conf_password'];
-		$cat      = $_POST['cat'];
-				
-		$slct = "SELECT * FROM vendor";
-		
-		$rslt = mysqli_query($conn, $slct);
-		
-		while($ftch = mysqli_fetch_assoc($rslt)){
 			
-			if($email != $ftch['v_email'] && $password == $conf_password){
+			if($password == $conf_password){
 				
 				$query1 = "INSERT INTO vendor(v_name, v_email, v_password, phone) VALUES('$name', '$email', '$password', '$phone')";
-
+				$result1 = mysqli_query($conn, $query1);
 				/*echo $query1;
 				die;*/
 				
+				
+			
+				
 				$query2 = "SELECT * FROM vendor";
-				$result1 = mysqli_query($conn, $query2);
+				$result2 = mysqli_query($conn, $query2);
 
-				$row1    = mysqli_fetch_assoc($result1);
+				$row1    = mysqli_fetch_assoc($result2);
 
-				if($row1['v_id']){
-					$_SESSION['v_id']   = $row1['v_id'];
-					$_SESSION['v_name'] = $row1['v_name'];
+				if(mysqli_query($conn, $query1)){
+					
+					$last_id = mysqli_insert_id($conn);
+					$_SESSION['v_id']   = $last_id;
+					
+					if(isset($_SESSION['v_id'])){
+						$_SESSION['v_name'] = $row1['v_name'];
+					}
 					
 					echo '<script>window.top.location="vendor_form.php"</script>';
 					exit();
 				}
+				else{
+				$msg = "This email is already registered!";
+				}
 			}
+		else{
+			$msg = "Please check your password!";
 		}
-		
-		
 	}
+		
+		
+	
 							
 ?>
 <section class="akame-contact-area bg-gray section-padding-80">

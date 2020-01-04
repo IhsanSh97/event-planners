@@ -10,6 +10,7 @@ include("../includes/admin_header.php");
 		// get data from file
 		$img       = $_FILES['img']['name'];
 		$temp_name = $_FILES['img']['tmp_name'];
+		$err       = $_FILES['img']['error'];
 		$path      = "upload/";
 		
 		

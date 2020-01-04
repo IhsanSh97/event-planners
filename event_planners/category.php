@@ -9,7 +9,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+                                <li class="breadcrumb-item active" aria-current="page">Services</li>
                             </ol>
                         </nav>
                     </div>
@@ -25,23 +25,24 @@
             <div class="row">
                 <div class="col-12">
                     <div class="portfolio-menu text-center mb-50">
-                        <button class="btn active" data-filter="*">All</button>
+                        <!--<button class="btn active" data-filter="*">All</button>-->
 						<?php
 						
-							$query  = "SELECT * FROM service";
-							$result = mysqli_query($conn, $query);
-							while($row = mysqli_fetch_assoc($result)){
-								echo "<button class='btn' data-filter='.{$row['category']}'>{$row['category']}</button>";
-							}
+							#$query  = "SELECT * FROM service";
+							#$result = mysqli_query($conn, $query);
+							#while($row = mysqli_fetch_assoc($result)){
+							#	echo "<button class='btn' data-filter='.{$row['category']}'>{$row['category']}</button>";
+							#}
 							
 							$query2 = "SELECT * FROM vendor_service";
 							$result2 = mysqli_query($conn, $query2);
 
-							echo "</div></div></div><div class='row akame-portfolio-area'>
-							<div class='col-12 col-sm-6 col-lg-4 akame-portfolio-item {$row['category']} mb-30 wow fadeInUp' data-wow-delay='200ms'>";
-
+							echo "</div></div></div><div class='row akame-portfolio-area'>";
+							
 							while($row1 = mysqli_fetch_assoc($result2)){
-								echo "
+							echo "<div class='col-12 col-sm-6 col-lg-4 akame-portfolio-item mb-30 wow fadeInUp' data-wow-delay='200ms'>";
+
+							echo "
 									<div class='akame-portfolio-single-item'>
 										<img src='upload/{$row1['img']}' alt=''>";
 
@@ -49,6 +50,7 @@
 							echo "<div class='overlay-content d-flex align-items-center justify-content-center'>
 								<div class='overlay-text text-center'>
 									<a href='service.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'><h4>{$row1['vs_name']}</h4></a>
+									<a class='btn akame-btn active' href='user_reserve.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'>Appointment</a>
 
 								</div>
 								</div>";

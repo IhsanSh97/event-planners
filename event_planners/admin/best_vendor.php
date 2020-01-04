@@ -3,16 +3,17 @@
 //the action will start if the button is clicked
 	if(isset($_POST['submit'])){
 		//fetch data from web form
-		$serial = $_POST['vs_serial'];
+		//$serial = $_POST['vs_serial'];
 		
+		/*
 		$slct  = "SELECT * FROM vendor_service";
 		$rslt = mysqli_query($conn, $slct);
 		$row = mysqli_fetch_assoc($rslt);
 		$vs_name = $row['vs_name'];
-		
-		if(!empty($vs_name)){
-			
-			$query 	= "INSERT INTO best_vendor(vs_serial, vs_name) values('$serial', '$vs_name')";
+		*/
+		$vs = explode("-",$_POST['vs_serial']);
+					
+			$query 	= "INSERT INTO best_vendor(vs_serial, vs_name) values('$vs[0]', '$vs[1]')";
 		
 			/*echo $query;
 			die;*/
@@ -22,7 +23,7 @@
 			mysqli_query($conn, $query);
 			echo '<script>window.top.location="best_vendor.php"</script>';
 			exit();
-		}
+		
 		
 		
 	}
@@ -47,6 +48,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Select Vendor</label>
+					  <div class="alert alert-warning">You can select the vendor only once.</div>
 					  <select class='form-control' name='vs_serial'>
 						  <option selected disabled value=''>Select Vendor</option>
                     <?php
@@ -55,7 +57,7 @@
 						$result = mysqli_query($conn, $query);
 						  
 						while($row = mysqli_fetch_assoc($result)){
-							echo "<option value='{$row['vs_serial']}'>{$row['vs_name']}</option>";
+							echo "<option value='{$row['vs_serial']}-{$row['vs_name']}'>{$row['vs_name']}</option>";
 						}
 					  
 					?>
@@ -86,7 +88,7 @@
                   </thead>
                   <tbody>
 					  <?php
-							$query1  = "SELECT * FROM best_vendor WHERE vs_serial = ";
+							$query1  = "SELECT * FROM best_vendor";
 							$result1 = mysqli_query($conn, $query1);
 							while($row1 = mysqli_fetch_assoc($result1)){
 								echo "<tr>";

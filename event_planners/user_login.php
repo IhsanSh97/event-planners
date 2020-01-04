@@ -42,7 +42,8 @@ include("includes/public_header.php");
                             <div class="col-lg-12">
                                 <input type="email" name="email" class="form-control mb-30" placeholder="Email" required>
 								<input type="password" name="password" class="form-control mb-30" placeholder="Password" required>
-							
+								<p style="color: black;">Don't have an account? <a href="user_signup.php" style="color: #bca858; ">Regist here</a></p>
+							</div>
                             <div class="col-12 text-center">
                                 <button type="submit" name="submit" class="btn akame-btn btn-3 mt-15 active">Submit</button>
                             </div>
