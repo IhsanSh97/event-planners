@@ -105,7 +105,7 @@ session_start();
                                             </li>
                                         </ul>
                                     </li>-->
-                                    <li><a href="./category.php">Services</a></li>
+                                    <li><a href="./category.php">Vendors</a></li>
                                     <li><a href="#">About Us</a></li>
                                     <li><a href="#">Blog</a></li>
                                     <li><a href="#">Contact</a></li>
@@ -128,7 +128,7 @@ session_start();
 												if(isset($_SESSION['user_id'])){
 													echo "<a href='#'><i class='fas fa-user-circle' style='font-size: 30px;'></i></a>
 														 <ul class='dropdown'>";
-													echo "<li><a href='#'>Reservations</a></li>";
+													echo "<li><a href='user_appoint.php'>Appointments</a></li>";
 													echo "<li><a href='user_change_pass.php'>Change Password</a></li>";
 													echo "<li><a href='logout.php'>Logout</a></li>
 													</ul>";
@@ -136,7 +136,7 @@ session_start();
 												else if(isset($_SESSION['v_id'])){
 													echo "<a href='#'><i class='fas fa-user-circle' style='font-size: 30px;'></i></a>
 														 <ul class='dropdown'>";
-													echo "<li><a href='#'>Reservations</a></li>";
+													echo "<li><a href='vendor_reserve.php'>Appointments</a></li>";
 													echo "<li><a href='edit_form.php'>Edit Market</a></li>";
 													echo "<li><a href='vendor_change_password.php'>Change Password</a></li>";
 													echo "<li><a href='logout.php'>Logout</a></li>

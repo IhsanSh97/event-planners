@@ -1,17 +1,17 @@
 <?php
 include("includes/public_header.php");
 
-$query = "SELECT * FROM vs_img WHERE vs_serial = {$_GET['vs_serial']}";
+$query  = "SELECT * FROM vs_img WHERE vs_serial = {$_GET['vs_serial']}";
 $result = mysqli_query($conn, $query);
-$row = mysqli_fetch_assoc($result);
+$row    = mysqli_fetch_assoc($result);
 
-$q = "SELECT v_id FROM vendor_service WHERE vs_serial = {$_GET['vs_serial']}";
-$r = mysqli_query($conn, $q);
+$q    = "SELECT v_id FROM vendor_service WHERE vs_serial = {$_GET['vs_serial']}";
+$r    = mysqli_query($conn, $q);
 $rows = mysqli_fetch_assoc($r);
 
 $qu = "SELECT phone FROM vendor WHERE v_id = {$rows['v_id']}";
 $ru = mysqli_query($conn, $qu);
-$r = mysqli_fetch_assoc($ru);
+$r  = mysqli_fetch_assoc($ru);
 
 /*echo "<pre>";
 print_r($row);

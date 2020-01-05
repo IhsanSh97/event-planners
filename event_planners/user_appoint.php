@@ -1,13 +1,10 @@
 <?php
-/*
-require("includes/connect.php");
-session_start();
-*/include("includes/public_header.php");
 
-	if(!isset($_SESSION['v_id'])){
-		echo '<script>window.top.location="vendor_login.php"</script>';
-	}
-		
+include("includes/public_header.php");
+
+if(!isset($_SESSION['user_id'])){
+	echo '<script>window.top.location="user_login.php"</script>';
+}
 
 ?>
     <section class="content">
@@ -26,8 +23,7 @@ session_start();
 					  <!-- appointment serial -->
                       <th style="width: 10px">#</th>
 						
-                      <th>Name</th>
-                      <th>Phone</th>
+                      <th>Vendor</th>
                       <th>Date</th>
                       <th>Time</th>
                       <th>Delete</th>
@@ -35,24 +31,20 @@ session_start();
                   </thead>
                   <tbody>
 					<?php
-					  	  $q = "SELECT vs_serial FROM vendor_service WHERE v_id = {$_SESSION['v_id']}";
-					  	  $rslt = mysqli_query($conn, $q);
-					      $r    =  mysqli_fetch_assoc($rslt);
-						  $query  = "SELECT * FROM reservation RIGHT JOIN user ON reservation.user_id = user.user_id WHERE vs_serial = {$r['vs_serial']}";
-					  /*echo $query;
-					  die;*/
+
+						  $query  = "SELECT * FROM reservation INNER JOIN vendor_service ON reservation.vs_serial = vendor_service.vs_serial WHERE user_id = {$_SESSION['user_id']}";
 						  $result = mysqli_query($conn, $query);
 
 						  while($row = mysqli_fetch_assoc($result)){
 							echo "<tr>
 									<td>{$row['serial']}</td>
-									<td>{$row['user_name']}</td>
-									<td>{$row['phone']}</td>
+									<td>{$row['vs_name']}</td>
 									<td>{$row['r_date']}</td>
 									<td>{$row['r_time']}</td>
 									<td width='40px'><a href='delete_appoint.php?serial={$row['serial']}' class='btn btn-block bg-danger' style='color:white;'>Delete</a></td>
 								  </tr>";
 						  }
+					  
 					?>
                   </tbody>
                 </table>

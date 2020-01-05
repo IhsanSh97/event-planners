@@ -1,5 +1,6 @@
 <?php
-/**/
+/*require("includes/connect.php");
+session_start();*/
 include("includes/public_header.php");
 
 	if(!isset($_SESSION['user_id'])){
@@ -10,21 +11,33 @@ include("includes/public_header.php");
 		$date = $_POST['date'];
 		$time = $_POST['time'];
 		
-		$query = "INSERT INTO reservation(vs_serial, user_id, r_date, r_time) VALUE('{$_GET['vs_serial']}', '{$_SESSION['user_id']}', '$date', '$time')";
+		$q = "SELECT * FROM reservation";
+		$rslt = mysqli_query($conn, $q);
 		
-		/*echo $query;
-		die;*/
-		
-		if(mysqli_query($conn, $query)){
+		while($row = mysqli_fetch_assoc($rslt)){
 			
-			$last_id = mysqli_insert_id($conn);
-			/*echo $last_id;
-			die;*/
-			echo '<script>window.top.location="terms.php?last_id=$last_id"</script>';
+			if($date != $row['r_date'] && $time != $row['r_time']){
+			
+				$query = "INSERT INTO reservation(vs_serial, user_id, r_date, r_time) VALUE('{$_GET['vs_serial']}', '{$_SESSION['user_id']}', '$date', '$time')";
+
+				echo $query;
+				die;
+
+				if(mysqli_query($conn, $query)){
+
+					$last_id = mysqli_insert_id($conn);
+					/*echo $last_id;
+					die;*/
+					echo '<script>window.top.location="terms.php?last_id=mysqli_insert_id($conn)"</script>';
+				}
+				
+			}else{
+				$msg = "This time is already reserved on this day, please select another date or time.";
+				}
+				
 		}
-		else{
-			$msg = "This time is already reserved on this day, please select another date or time.";
-		}
+		
+
 				
 		
 		
