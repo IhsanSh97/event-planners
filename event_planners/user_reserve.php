@@ -20,15 +20,15 @@ include("includes/public_header.php");
 			
 				$query = "INSERT INTO reservation(vs_serial, user_id, r_date, r_time) VALUE('{$_GET['vs_serial']}', '{$_SESSION['user_id']}', '$date', '$time')";
 
-				echo $query;
-				die;
+				/*echo $query;
+				die;*/
 
 				if(mysqli_query($conn, $query)){
 
 					$last_id = mysqli_insert_id($conn);
 					/*echo $last_id;
 					die;*/
-					echo '<script>window.top.location="terms.php?last_id=mysqli_insert_id($conn)"</script>';
+					echo "<script>window.top.location='terms.php?last_id={$last_id}'</script>";
 				}
 				
 			}else{
