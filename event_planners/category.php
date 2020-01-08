@@ -8,7 +8,7 @@
                         <h2>Vendors</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php"><i class="icon_house_alt"></i> Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Services</li>
                             </ol>
                         </nav>
@@ -37,7 +37,7 @@
 							$query2 = "SELECT * FROM vendor_service";
 							$result2 = mysqli_query($conn, $query2);
 
-							echo "</div></div></div><div class='row akame-portfolio-area'>";
+							echo "<div class='row akame-portfolio-area'>";
 							
 							while($row1 = mysqli_fetch_assoc($result2)){
 							echo "<div class='col-12 col-sm-6 col-lg-4 akame-portfolio-item mb-30 wow fadeInUp' data-wow-delay='200ms'>";
@@ -58,13 +58,16 @@
 
 							echo "<a href='upload/{$row1['img']}' class='thumbnail-zoom'><i class='icon_search'></i></a>
 								</div>
-							</div></div>";
+							</div>
+							</div>";
 							}
 						
 						?>
 
             
-
+</div>
+        </div>
+        </div>
             <div class="row">
                 <div class="col-12">
                     <div class="view-all-btn mt-30 text-center">
@@ -72,7 +75,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </section>
     <!-- Portfolio Area End -->
 

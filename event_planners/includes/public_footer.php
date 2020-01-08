@@ -7,7 +7,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single-footer-widget mb-80">
                         <!-- Footer Logo -->
-                        <a href="#" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php" class="footer-logo"><img src="./img/icon/Logo1.png" alt="" width="28%"></a>
 
                         <p class="mb-30">We would love to serve you and let you enjoy your culinary experience. Excepteur sint occaecat cupidatat non proident.</p>
 
@@ -51,7 +51,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                         <!-- Contact Address -->
                         <div class="contact-address">
-                            <p>Tel: (+12) 345 678 910</p>
+                            <p>Tel: (+962) 345 678 910</p>
                             <p>E-mail: Hello.colorlib@gmail.com</p>
                             <p>Address: Iris Watson, P.O. Box 283 8562 Fusce Rd, NY</p>
                         </div>

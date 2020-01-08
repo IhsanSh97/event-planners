@@ -165,7 +165,7 @@
     // ****************************
     if ($.fn.scrollUp) {
         akame_window.scrollUp({
-            scrollSpeed: 1500,
+            scrollSpeed: 600,
             scrollText: '<i class="arrow_carrot-up"</i>'
         });
     }

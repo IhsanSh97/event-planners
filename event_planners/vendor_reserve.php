@@ -50,7 +50,7 @@ session_start();
 									<td>{$row['phone']}</td>
 									<td>{$row['r_date']}</td>
 									<td>{$row['r_time']}</td>
-									<td width='40px'><a href='delete_appoint.php?serial={$row['serial']}' class='btn btn-block bg-danger' style='color:white;'>Delete</a></td>
+									<td width='40px'><a href='delete_reserve.php?serial={$row['serial']}' class='btn btn-block bg-danger' style='color:white;'>Delete</a></td>
 								  </tr>";
 						  }
 					?>

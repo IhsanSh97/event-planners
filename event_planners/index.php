@@ -26,7 +26,6 @@ include("includes/public_header.php") ?>
 									
                                     <h2 data-animation="fadeInUp" data-delay="100ms">We Care About <br> You</h2>
                                     <p data-animation="fadeInUp" data-delay="400ms">“Manage your event professionally”</p>
-                                    <a href="#" class="btn akame-btn" data-animation="fadeInUp" data-delay="700ms">About Us</a>
                                 </div>
                                 </div>
                             </div>
@@ -49,7 +48,6 @@ include("includes/public_header.php") ?>
 									
                                     <h2 data-animation="fadeInUp" data-delay="100ms">We Care About <br> You</h2>
                                     <p data-animation="fadeInUp" data-delay="400ms">“Manage your event professionally”</p>
-                                    <a href="#" class="btn akame-btn" data-animation="fadeInUp" data-delay="700ms">About Us</a>
                                 </div>
                                 </div>
                             </div>
@@ -72,7 +70,6 @@ include("includes/public_header.php") ?>
 									
                                     <h2 data-animation="fadeInUp" data-delay="100ms">We Care About <br> You</h2>
                                     <p data-animation="fadeInUp" data-delay="400ms">“Manage your event professionally”</p>
-                                    <a href="#" class="btn akame-btn" data-animation="fadeInUp" data-delay="700ms">About Us</a>
                                 </div>
                                 </div>
                             </div>
@@ -109,7 +106,7 @@ include("includes/public_header.php") ?>
                     <div class="about-us-content mb-80 pl-4">
                         <h3>Best choices come from here</h3>
                         <p>“We help couples discover vendors and ideas and provide them with online services to help them create their ideal wedding day.”</p>
-                        <a href="#" class="btn akame-btn active mt-30">Read More</a>
+                        <a href="about.php" class="btn akame-btn active mt-30">Read More</a>
                     </div>
                 </div>
             </div>
@@ -274,122 +271,7 @@ include("includes/public_header.php") ?>
     <!-- Portfolio Area End -->
 
     <!-- Our Expert Area Start -->
-    <section class="akame-our-expert-area section-padding-80-0">
-
-        <!-- Side Thumbnail -->
-        <div class="side-thumbnail" style="background-image: url(img/imgs/14.jpg);"></div>
-
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-12 col-lg-6">
-                    <!-- Section Heading -->
-                    <div class="section-heading">
-                        <h2>Event Coordinators</h2>
-                        <p>In general, an event coordinator puts together events, tackling anything from client meetings to cleanup. Responsibilities may include preparing budgets, scouting and booking locations, conducting press outreach, lining up sponsors and celebrity guests, and securing food and drinks.</p>
-                    </div>
-                    <!-- Our Certificate -->
-                    <div class="our-certificate-area mb-60 d-flex align-items-center">
-                        <img src="img/core-img/certificate-1.png" alt="">
-                        <img src="img/core-img/certificate-2.png" alt="">
-                        <img src="img/core-img/certificate-3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-
-                <!-- Single Team Member -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="team-member-img">
-                            <img src="img/bg-img/10.jpg" alt="">
-                            <!-- Social Info -->
-                            <div class="team-social-info d-flex align-items-center justify-content-center">
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-member-info">
-                            <h5>Mila Hartley</h5>
-                            <p>Event Cooredinator</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Team Member -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="team-member-img">
-                            <img src="img/bg-img/11.jpg" alt="">
-                            <!-- Social Info -->
-                            <div class="team-social-info d-flex align-items-center justify-content-center">
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-member-info">
-                            <h5>Teigan Duran</h5>
-                            <p>Event Cooredinator</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Team Member -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="600ms">
-                        <div class="team-member-img">
-                            <img src="img/bg-img/12.jpg" alt="">
-                            <!-- Social Info -->
-                            <div class="team-social-info d-flex align-items-center justify-content-center">
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-member-info">
-                            <h5>Tanya Ramsay</h5>
-                            <p>Event Cooredinator</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Team Member -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="800ms">
-                        <div class="team-member-img">
-                            <img src="img/bg-img/13.jpg" alt="">
-                            <!-- Social Info -->
-                            <div class="team-social-info d-flex align-items-center justify-content-center">
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-member-info">
-                            <h5>Donna Carr</h5>
-                            <p>Event Cooredinator</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    
     <!-- Our Expert Area End -->
 
     <!-- Border -->
@@ -406,8 +288,7 @@ include("includes/public_header.php") ?>
                     <div class="cta-content">
                         <h2>Make Event Planners Your <br>Number One Choice</h2>
                         <div class="akame-btn-group mt-30">
-                            <a href="#" class="btn akame-btn active mr-3 mb-3 mb-sm-0">Book An Appointment</a>
-                            <a href="#" class="btn akame-btn">Contact Us</a>
+                            <a href="contact.php" class="btn akame-btn">Contact Us</a>
                         </div>
                     </div>
                 </div>

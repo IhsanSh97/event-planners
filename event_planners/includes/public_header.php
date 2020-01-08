@@ -24,6 +24,7 @@ session_start();
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="customStyle.css">
 
 	
 	<!--<script>
@@ -53,7 +54,7 @@ session_start();
                     </div>
                     <div class="col-7">
                         <div class="top-header-content text-right">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> Mon-Sat: 8.00 to 17.00 <span class="mx-2"></span> | <span class="mx-2"></span> <i class="fa fa-phone" aria-hidden="true"></i> Call us: (+12)-345-6789</p>
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> Mon-Sat: 8.00 to 17.00 <span class="mx-2"></span> | <span class="mx-2"></span> <i class="fa fa-phone" aria-hidden="true"></i> Call us: (+962) 345 678 910</p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +70,7 @@ session_start();
                     <nav class="classy-navbar justify-content-between" id="akameNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="./img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="./img/icon/Logo1.png" alt="" width="13%"></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -85,7 +86,7 @@ session_start();
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul id="nav">
-                                    <li class="active"><a href="./index.php">Home</a></li>
+                                    <li class=""><a href="./index.php">Home</a></li>
                                     <!--<li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="./index.php">- Home</a></li>
@@ -106,9 +107,8 @@ session_start();
                                         </ul>
                                     </li>-->
                                     <li><a href="./category.php">Vendors</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
 									<?php
 										if(!isset($_SESSION['user_id']) && !isset($_SESSION['v_id'])){
 											echo "<li><a href='vendor_signup.php'>Vendor?</a></li>";
