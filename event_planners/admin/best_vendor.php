@@ -1,4 +1,6 @@
-<?php include("../includes/admin_header.php"); 
+<?php include("../includes/admin_header.php");
+
+/*echo "page";*/
 
 //the action will start if the button is clicked
 	if(isset($_POST['submit'])){
@@ -11,28 +13,42 @@
 		$row = mysqli_fetch_assoc($rslt);
 		$vs_name = $row['vs_name'];
 		*/
+		
 		$vs = explode("-",$_POST['vs_serial']);
 					
 			$query 	= "INSERT INTO best_vendor(vs_serial, vs_name) values('$vs[0]', '$vs[1]')";
 		
 			/*echo $query;
 			die;*/
-
-
+		
 			//perform query
 			mysqli_query($conn, $query);
-			echo '<script>window.top.location="best_vendor.php"</script>';
-			exit();
+				
+				$msg = "Best Vendor has been added successfully";
+				
+				echo "<script>window.top.location='best_vendor.php?'</script>";
+				/*exit();*/
+
+		/*$query 	= "INSERT INTO best_vendor(vs_serial, vs_name) values('{$_GET['vs_serial']}', '{$_GET['vs_name']}')";
 		
-		
+			
+			}
+			else{
+				$err = "The vendor is already a Best Vendor";
+				
+				echo "<script>window.top.location='view_service.php?err='{$err}''</script>";
+				exit();
+			}*/
+					
 		
 	}
+
 
 ?>  
 
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+   <!--  Content Header (Page header) -->
     <div class="content-header">
     <!-- Main content -->
     <section class="content">
@@ -59,12 +75,12 @@
 						while($row = mysqli_fetch_assoc($result)){
 							echo "<option value='{$row['vs_serial']}-{$row['vs_name']}'>{$row['vs_name']}</option>";
 						}
-					  
+						  
 					?>
 					</select>
                   </div>
                 </div>
-                <!-- /.card-body -->
+                 <!--/.card-body -->
                 <div class="card-footer">
                   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </div>
@@ -102,13 +118,13 @@
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
+               <!--/.card-body -->
             </div>
 				</div>
 		 </div>
 	</section>
-    <!-- /.content -->
+    <!-- /.content-->
   	</div>
-  </div>
+  </div> 
   <!-- /.content-wrapper -->
-<?php include("../includes/admin_footer.php"); ?>  
+<?php include("../includes/admin_footer.php"); ?>

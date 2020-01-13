@@ -49,7 +49,7 @@ session_start();
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -91,7 +91,7 @@ session_start();
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="index.php" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
@@ -128,7 +128,7 @@ session_start();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.php" class="nav-link active">
+                <a href="./index.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Admin</p>
                 </a>
@@ -139,22 +139,16 @@ session_start();
                   <p>Manage Category</p>
                 </a>
               </li>
+			  <li class="nav-item">
+                <a href="./view_app.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Appointments</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="./view_user.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Users</p>
-                </a>
-              </li>
-				<li class="nav-item">
-                <a href="./view_service.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Services</p>
-                </a>
-              </li>
-			  <li class="nav-item">
-                <a href="./best_vendor.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Best Vendors</p>
                 </a>
               </li>
             </ul>

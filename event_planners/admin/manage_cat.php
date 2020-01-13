@@ -51,8 +51,8 @@ include("../includes/admin_header.php");
                     <input type="text" class="form-control" name="category" id="exampleInputEmail1" placeholder="Enter category name">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Image</label>
-                    <input type="file" class="form-control" name="img" id="exampleInputPassword1">
+                    <label for="exampleInputPassword1">Image</label><br>
+                    <input type="file" name="img" id="exampleInputPassword1">
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -74,6 +74,7 @@ include("../includes/admin_header.php");
                       <th>#</th>
                       <th>Category</th>
                       <th>Image</th>
+                      <th>View</th>
                       <th>Edit</th>
                       <th>Delete</th>
                     </tr>
@@ -87,6 +88,7 @@ include("../includes/admin_header.php");
 								echo "<td>{$row['service_id']}</td>";
 								echo "<td>{$row['category']}</td>";
 								echo "<td><img width='100px' src='upload/{$row['img']}'/></td>";
+								echo "<td><a href='view_service.php?service_id={$row['service_id']}' class='btn btn-block bg-gradient-success'>View</a></td>";
 								echo "<td><a href='edit_category.php?service_id={$row['service_id']}' class='btn btn-block bg-gradient-warning'>Edit</a></td>";
 								echo "<td><a href = 'delete_category.php?service_id={$row['service_id']}' class='btn btn-block bg-gradient-danger'>Delete</a></td>";
 								echo "</tr>";
@@ -94,6 +96,9 @@ include("../includes/admin_header.php");
 						?>
                   </tbody>
                 </table>
+				  <?php
+				  echo "<a href='best_vendor.php' class='btn btn-block btn-info btn-lg'>Best Vendor</a>";
+					  ?>
               </div>
               <!-- /.card-body -->
             </div>

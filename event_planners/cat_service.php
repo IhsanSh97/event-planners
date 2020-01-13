@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>Vendors</h2>
+                        <h2><?php echo $_GET['category']; ?></h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i class="icon_house_alt"></i> Home</a></li>
@@ -25,21 +25,30 @@
             <div class="row">
                 <div class="col-12">
                     <div class="portfolio-menu text-center mb-50">
-                        <a href='category.php' class="btn active" data-filter="*">All</a>
+                        <a href='category.php' class="btn" data-filter="*">All</a>
 						<?php
 						
 							$query  = "SELECT * FROM service";
 							$result = mysqli_query($conn, $query);
 							while($row = mysqli_fetch_assoc($result)){
-								echo "<a href='cat_service.php?service_id={$row['service_id']}&category={$row['category']}' class='btn'>{$row['category']}</a>";
+								if($_GET['category'] == $row['category']){
+									echo "<a href='cat_service.php?service_id={$row['service_id']}&category={$row['category']}' class='btn active'>{$row['category']}</a>
+								";
+								}
+								else{
+									echo "<a href='cat_service.php?service_id={$row['service_id']}&category={$row['category']}' class='btn'>{$row['category']}</a>
+									";
+								}
+								
+								
 							}
-							?>
+						?>
 					</div>
 				</div>
 			</div>
 			<div class='row akame-portfolio-area'>
 					 <?php
-							$query2 = "SELECT * FROM vendor_service";
+							$query2 = "SELECT * FROM vendor_service WHERE service_id = {$_GET['service_id']}";
 							$result2 = mysqli_query($conn, $query2);
 
 							echo "";
@@ -53,23 +62,25 @@
 
 
 							echo "<div class='overlay-content d-flex align-items-center justify-content-center'>
-								<div class='overlay-text text-center'>
-									<a href='service.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'><h4>{$row1['vs_name']}</h4></a>
-									<a class='btn akame-btn active' href='user_reserve.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'>Appointment</a>
+									<div class='overlay-text text-center'>
+										<a href='service.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'><h4>{$row1['vs_name']}</h4></a>
+										<a class='btn akame-btn active' href='user_reserve.php?vs_serial={$row1['vs_serial']}&vs_name={$row1['vs_name']}'>Appointment</a>
 
-								</div>
+									</div>
 								</div>";
 
 
 							echo "<a href='upload/{$row1['img']}' class='thumbnail-zoom'><i class='icon_search'></i></a>";
 								
 							echo	"</div>
-								</div>
-								";
+									</div>";
 							}
 						
 						?>
-</div>
+
+           
+	</div>
+        
             <div class="row">
                 <div class="col-12">
                     <div class="view-all-btn mt-30 text-center">
@@ -77,7 +88,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
     <!-- Portfolio Area End -->

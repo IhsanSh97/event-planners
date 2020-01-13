@@ -15,7 +15,7 @@
             <!-- general form elements -->		 
 			<div class="card">
               <div class="card-header">
-                <h3 class="card-title">View User</h3>
+                <h3 class="card-title">Appointments</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -23,25 +23,24 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Email</th>
-                      <th>Name</th>
-                      <th>Phone</th>
-                      <th>Image</th>
+                      <th>Service ID</th>
+                      <th>User ID</th>
+                      <th>Date</th>
+                      <th>Time</th>
                     </tr>
                   </thead>
                   <tbody>
 					  <?php
-							$query  = "SELECT * FROM user";
+							$query  = "SELECT * FROM reservation";
 							$result = mysqli_query($conn, $query);
 							while($row = mysqli_fetch_assoc($result)){
 								echo "<tr>";
+								echo "<td>{$row['serial']}</td>";
+								echo "<td>{$row['vs_serial']}</td>";
 								echo "<td>{$row['user_id']}</td>";
-								echo "<td>{$row['user_email']}</td>";
-								echo "<td>{$row['user_name']}</td>";
-								echo "<td>{$row['phone']}</td>";
-								echo "<td><img width='100px' src='../upload/{$row['img']}'/></td>";
+								echo "<td>{$row['r_date']}</td>";
+								echo "<td>{$row['r_time']}</td>";
 								echo "</tr>";
-
 							}
 						?>
                   </tbody>
@@ -50,7 +49,6 @@
               <!-- /.card-body -->
             </div>
 				</div>
-		 </div>
 		 </div>
 	</section>
     <!-- /.content -->

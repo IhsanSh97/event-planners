@@ -70,7 +70,7 @@ session_start();
                     <nav class="classy-navbar justify-content-between" id="akameNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="./img/icon/Logo1.png" alt="" width="13%"></a>
+                        <a class="nav-brand" href="index.php"><img src="./img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
