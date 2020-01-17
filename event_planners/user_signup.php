@@ -10,10 +10,10 @@ include("includes/public_header.php");
 
 	if(isset($_POST['submit'])){
 		
-		$name     = $_POST['name'];
-		$email    = $_POST['email'];
-		$phone    = $_POST['phone'];
-		$password = $_POST['password'];
+		$name          = $_POST['name'];
+		$email         = $_POST['email'];
+		$phone         = $_POST['phone'];
+		$password      = $_POST['password'];
 		$conf_password = $_POST['conf_password'];
 		
 		$img      = $_FILES['img']['name'];
@@ -22,40 +22,47 @@ include("includes/public_header.php");
 		
 		move_uploaded_file($tmp_name, $path);
 		
+		/*$query2  = "SELECT * FROM user";
+		$result2 = mysqli_query($conn, $query2);
+		$row1    = mysqli_fetch_assoc($result2);
 
+		while($row1){*/
 			
-			if($password == $conf_password){
+			if($password == $conf_password/* && $row1['user_email'] != $email*/){
 				
 				$query = "INSERT INTO user(user_name, user_email, user_password, phone, img) VALUES('$name', '$email', '$password', '$phone', '$img')";
 				
-				mysqli_query($conn, $query);
+				/*mysqli_query($conn, $query);
 
 				$query2 = "SELECT * FROM user";
 				$result2 = mysqli_query($conn, $query2);
 
 				$row1    = mysqli_fetch_assoc($result2);
 
-				if(mysqli_query($conn, $query)){
+				
 					
 					$last_id = mysqli_insert_id($conn);
 					$_SESSION['user_id']   = $last_id;
 					
 					if(isset($_SESSION['user_id'])){
 						$_SESSION['user_name'] = $row1['user_name'];
+					*/
+					if(mysqli_query($conn, $query)){
+						$msg = "Registered successfully, login please!";
+						$_SESSION['msg'] = $msg;
+						echo '<script>window.top.location="user_login.php"</script>';
+						exit();
+						
 					}
-					
-					echo '<script>window.top.location="index.php"</script>';
-					exit();
+					else{
+						$msg = "Please check your password or email!";
+					}
 				}
+			
 				else{
-					$msg = "This email is already registered.";
+					$msg = "Please check your password or email!";
 				}
-
-			}
-			else{
-					$msg = "Please check your password!";
-				}
-				
+			/*}*/
 	}
 
 ?>   
@@ -78,7 +85,8 @@ include("includes/public_header.php");
 								<input type="password" name="password" class="form-control mb-30" placeholder="Password" required>
 								<input type="password" name="conf_password" class="form-control mb-30" placeholder="Confirm Password" required>
                                 <input type="text" name="phone" class="form-control mb-30" placeholder="Phone Number" required>
-								<input type="file" name="img" class="mb-30" required>
+								<label class="mb-30 col-4">Choose Image</label>
+								<input type="file" name="img" class="mb-30">
 								<p style="color: black;">Already have an account? <a href="user_login.php" style="color: #bca858; ">Login here</a></p>
 							</div>
                             <div class="col-12 text-center">

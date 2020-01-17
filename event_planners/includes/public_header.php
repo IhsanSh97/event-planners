@@ -106,7 +106,7 @@ session_start();
                                             </li>
                                         </ul>
                                     </li>-->
-                                    <li><a href="./category.php">Vendors</a></li>
+                                    <li><a href="./category.php">Services</a></li>
                                     <li><a href="about.php">About Us</a></li>
                                     <li><a href="contact.php">Contact Us</a></li>
 									<?php

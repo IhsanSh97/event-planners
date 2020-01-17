@@ -38,7 +38,6 @@
                       <th>Vendor ID</th>
                       <th>Name</th>
                       <th>Image</th>
-                      <th>Make Best Vendor</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -51,23 +50,7 @@
 								echo "<td>{$row['v_id']}</td>";
 								echo "<td>{$row['vs_name']}</td>";
 								echo "<td><img width='100px' src='../upload/{$row['img']}'/></td>";
-								echo "<td><form method='post'><button name='best' class='btn btn-block bg-gradient-success'>Best Vendor</button></form></td>";
-								
-								if(isset($_POST['best'])){
-									
-									$query1 = "INSERT INTO best_vendor(vs_serial, vs_name) values('{$row['vs_serial']}', '{$row['vs_name']}')";
-		
-									//perform query
-									mysqli_query($conn, $query1);
-
-									$msg = "Best Vendor has been added successfully";
-									
-									echo "<script>window.top.location='view_service.php?service_id={$_GET['service_id']}'</script>";
-									/*exit();*/
-								}
-								
-											echo "</tr>";
-
+								echo "</tr>";
 				
 							}
 					?>

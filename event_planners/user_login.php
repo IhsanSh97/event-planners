@@ -4,11 +4,12 @@ include("includes/public_header.php");
 
 	if(isset($_POST['submit'])){
 		
-		
+		unset($_SESSION['msg']);
 		$email    = $_POST['email'];
 		$password = $_POST['password'];
 		
 		if(!empty($email) && !empty($password)){
+			
 			
 			$slct = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$password'";
 			$rslt = mysqli_query($conn, $slct);
@@ -37,6 +38,9 @@ include("includes/public_header.php");
 							<?php
 								if(isset($msg)){
 									echo "<div class='alert alert-danger'>$msg</div>";
+								}
+								else if(isset($_SESSION['msg'])){
+									echo "<div class='alert alert-success'>{$_SESSION['msg']}</div>";
 								}
 							?> 
                             <div class="col-lg-12">

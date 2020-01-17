@@ -29,6 +29,7 @@ include("includes/public_header.php");
 					/*echo $last_id;
 					die;*/
 					echo "<script>window.top.location='terms.php?last_id={$last_id}'</script>";
+					exit();
 				}
 				
 			}else{
